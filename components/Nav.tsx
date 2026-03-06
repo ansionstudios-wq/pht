@@ -20,7 +20,8 @@ export function Nav() {
     >
       <nav className="nav-inner" aria-label="Main">
         <Link href="/" className="nav-logo">
-          Portrait
+          <span className="nav-logo-line">Ansion</span>
+          <span className="nav-logo-line">studio</span>
         </Link>
         <ul className="nav-links">
           <li>

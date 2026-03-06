@@ -3,15 +3,14 @@
 import Image from "next/image";
 import { DustParticles } from "./DustParticles";
 
-const DEFAULT_IMAGE =
-  "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1920&q=80";
+const DEFAULT_IMAGE = "/assets/hero/hero2.jpeg";
 
 type HeroProps = {
   imageSrc?: string;
   imageAlt?: string;
 };
 
-export function Hero({ imageSrc = DEFAULT_IMAGE, imageAlt = "Portrait" }: HeroProps) {
+export function Hero({ imageSrc = DEFAULT_IMAGE, imageAlt = "Anusion studio" }: HeroProps) {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-bg">
@@ -27,15 +26,34 @@ export function Hero({ imageSrc = DEFAULT_IMAGE, imageAlt = "Portrait" }: HeroPr
       <div className="hero-overlay" aria-hidden />
       <DustParticles />
       <div className="hero-content">
+        <p className="hero-tagline">Where beauty finds its frame</p>
         <h1 className="hero-headline">Portraits That Withstand Time</h1>
         <p className="hero-subheading">
-          Where light meets memory, and every gaze becomes a story etched in
-          amber and gold.
+        Every glance , every embrace , every fleeting moment - Capturing with honesty , soul and an eye for beautiful
         </p>
         <a href="#gallery" className="btn-engraved">
           Enter the gallery
         </a>
       </div>
+      <a
+        href="#gallery"
+        className="hero-scroll-indicator"
+        aria-label="Scroll to gallery"
+      >
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden
+        >
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+      </a>
     </section>
   );
 }
