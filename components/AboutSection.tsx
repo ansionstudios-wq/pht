@@ -6,11 +6,13 @@ import Image from "next/image";
 const ABOUT_IMAGE =
   "https://images.unsplash.com/photo-1557862921-37829c790f19?w=800&q=80";
 
-const BIO = `I came to portrait work through a love of light and a belief that every face holds a story waiting to be seen. For years I wandered through old galleries and temples, studying how the masters caught a glance, a fold of cloth, a moment of stillness—and slowly, the craft became a kind of devotion.
+const BIO = `Hi, I'm Harshini. A believer in beauty — in the way light settles on a quiet afternoon, in the unguarded expression, in the moments too tender to stage. I am here to find those moments and hold them still, pressed into frames you will return to long after the day has passed.
 
-What I seek in each sitting is not perfection, but presence: the unguarded instant when the person before the lens is simply themselves. I work with natural light whenever I can, and with patience. The best portraits, like the oldest manuscripts, are made of time and attention.
+I have lived on both sides of the lens for as long as I can remember. People once called me photogenic, but I came to understand it was never really about that. I am simply happy in those moments — happy being seen, and equally happy doing the seeing. That happiness travels through the camera and into every person I photograph. They do not need to be photogenic. They only need to feel something real, because I always do.
 
-This gallery is a record of those encounters—faces that have trusted me with their silence and their light. I offer them here as you might find them in an old journal: not as trophies, but as witnesses to the quiet art of seeing.`;
+I have always been drawn to people and the quiet worlds they carry within them — to the way someone softens when they feel truly seen. That same gaze extends to everything around them: the effortless elegance of fashion, the unhurried grace of nature, the small and telling details of a life being lived. To me, photography has never been a technique. It is the simple, honest act of recognising beauty in another soul and offering it back to them, gently preserved within a frame.
+
+I photograph the way I remember. I grew up in a village where beauty was soft and unassuming — familiar light, gentle mornings, a landscape that asked nothing of you and gave you everything. I have since crossed oceans and built a life far from there, yet that place has never truly left me. It lives in the warmth I reach for, in the stillness I seek, in the vintage tenderness I find in every frame. My photography is not simply what stands before my lens. It is everything I have ever loved and carried with me.`;
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -44,8 +46,8 @@ export function AboutSection() {
             <Image
               src={ABOUT_IMAGE}
               alt="The portrait photographer at work"
-              width={480}
-              height={600}
+              width={500}
+              height={750}
               className="about-image"
               sizes="(max-width: 768px) 100vw, 42vw"
             />

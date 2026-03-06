@@ -854,7 +854,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ========== About — storytelling, old journal ========== */
 .about-section {
-  padding: 4rem 0 5rem;
+  /* padding: 4rem 0 6rem; */
+  scroll-margin-top: 5.5rem;
   background-color: rgba(242, 237, 228, 0.6);
   background-image:
     url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='0.035'/%3E%3C/svg%3E"),
@@ -916,9 +917,9 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 768px) {
   .about-content {
-    grid-template-columns: 0.95fr 1.05fr;
+    grid-template-columns: 0.85fr 1.15fr;
     gap: 3rem;
-    align-items: start;
+    align-items: center;
   }
 }
 
@@ -933,8 +934,9 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 768px) {
   .about-image-wrap {
-    margin: 0;
+    margin: 0 auto 0 0;
     max-width: 100%;
+    justify-self: start;
   }
 }
 
@@ -952,16 +954,17 @@ h1, h2, h3, h4, h5, h6 {
 .about-bio {
   font-family: var(--font-serif);
   font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.8;
+  font-weight: 900;
+  line-height: 1.18;
   letter-spacing: 0.02em;
   color: var(--text-faded-muted);
   border-left: 2px solid rgba(184, 160, 96, 0.4);
   padding-left: 1.25rem;
+  max-width: 100%;
 }
 
 .about-bio p {
-  margin: 0 0 1.25rem;
+  margin: 0 0 0.9rem;
 }
 
 .about-bio p:last-child {
@@ -971,6 +974,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ========== Testimonials — inscriptions on temple walls ========== */
 .testimonials-section {
   padding: 4.5rem 0 5.5rem;
+  scroll-margin-top: 5.5rem;
   opacity: 0;
   transform: translateY(1.25rem);
   transition: opacity 0.9s ease, transform 0.9s ease;
@@ -1094,6 +1098,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ========== Contact — old invitation scroll ========== */
 .contact-section {
   padding: 4rem 0 5rem;
+  scroll-margin-top: 5.5rem;
 }
 
 .contact-scroll {
