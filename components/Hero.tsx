@@ -34,25 +34,29 @@ export function Hero({ imageSrc = "/hero-portrait.jpeg" }: { imageSrc?: string }
           </div>
         </div>
         <div className="hero__image-wrap">
-          <div className="hero__image-tilt">
-            <div className="hero__image-fade" aria-hidden />
-            <div className="hero__image-inner">
-              {showImage ? (
-                <Image
-                  src={imageSrc}
-                  alt="Portrait"
-                  fill
-                  className="hero__image"
-                  sizes="(max-width: 768px) 100vw, 55vw"
-                  priority
-                  onError={() => setImageError(true)}
-                />
-              ) : (
-                <div className="hero__image-placeholder" aria-hidden>
-                  <span>Your portrait image</span>
-                  <span className="hero__image-placeholder-hint">Add public/hero-portrait.jpg</span>
-                </div>
-              )}
+          <div className="hero-media">
+            <div className="hero-media__frame">
+              <div className="hero-media__mat">
+                {showImage ? (
+                  <>
+                    <Image
+                      src={imageSrc}
+                      alt="Portrait"
+                      fill
+                      className="hero__image"
+                      sizes="(max-width: 768px) 100vw, 55vw"
+                      priority
+                      onError={() => setImageError(true)}
+                    />
+                    <div className="hero__image-fade" aria-hidden />
+                  </>
+                ) : (
+                  <div className="hero__image-placeholder" aria-hidden>
+                    <span>Your portrait image</span>
+                    <span className="hero__image-placeholder-hint">Add public/hero-portrait.jpg</span>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
