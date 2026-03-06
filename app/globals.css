@@ -601,6 +601,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ========== Gallery — ancient gallery wall ========== */
 .gallery-section {
   padding: 4rem 1.5rem 5rem;
+  scroll-margin-top: 5.5rem;
   opacity: 0;
   transform: translateY(1.25rem);
   transition: opacity 0.9s ease, transform 0.9s ease;
