@@ -5,21 +5,18 @@ import { useEffect, useRef, useState } from "react";
 const TESTIMONIALS = [
   {
     quote:
-      "To sit before this lens is to be seen as you are—gentle, patient, and utterly present. The portrait we made feels less like a photograph and more like a window into a moment I will carry forever.",
-    author: "Elena V.",
-    role: "Fine art client",
+      "She really said 'let me show you how beautiful you are.' If you need portraits that actually hit, go to her. All the best Harshu and Ansion Studios.",
+    author: "Yaznitha",
   },
   {
     quote:
-      "I had never felt so at ease in front of a camera. The light, the silence, the care—it was like stepping into an old temple where time slows and the soul is allowed to show itself.",
-    author: "James M.",
-    role: "Portrait session",
+      "Amazing work. I've always thought Harshini had a natural knack for aesthetics. Truly love her work and wishing her all the best.",
+    author: "Sevitha Darshini Anadaraj",
   },
   {
     quote:
-      "These are not pictures. They are inscriptions—carved in light and shadow, as lasting as stone. I am grateful to have been witnessed in this way.",
-    author: "Sofia K.",
-    role: "Wedding portraits",
+      "Portraits that feel natural and timeless. The moments were captured beautifully by Ansion Studios, creating photos that truly stand out.",
+    author: "Anjali",
   },
 ];
 
@@ -47,7 +44,7 @@ export function TestimonialsSection() {
       className={`testimonials-section ${visible ? "testimonials-section--visible" : ""}`}
     >
       <div className="layout-wrap">
-        <h2 className="testimonials-heading">Words Carved in Stone</h2>
+        <h2 className="testimonials-heading">Words Carved in Ansion</h2>
         <div className="testimonials-divider" aria-hidden />
 
         <ul className="testimonials-grid">
