@@ -14,15 +14,15 @@ export function ContactSection() {
     return (
       <section id="contact" className="contact-section">
         <div className="contact-scroll">
-          <h2 className="contact-heading">Your missive has been received</h2>
+          <p className="contact-success-badge">Received</p>
+          <h2 className="contact-heading contact-heading--success">Your story has reached us</h2>
           <div className="contact-divider" aria-hidden />
           <div className="contact-success">
             <p className="contact-success-text">
-              Thank you for reaching out. Your words have been carried to us like
-              a scroll of old—we shall read them with care and reply in kind
-              before long.
+              Thank you. We have read your words with care and will reply in kind.
+              Your moment matters to us.
             </p>
-            <p className="contact-success-signature">— The Atelier</p>
+            <p className="contact-success-signature">— Anusion studio</p>
           </div>
         </div>
       </section>
@@ -32,13 +32,16 @@ export function ContactSection() {
   return (
     <section id="contact" className="contact-section">
       <div className="contact-scroll">
-        <h2 className="contact-heading">Send Your Invitation</h2>
+        <h2 className="contact-heading">Your Vision, Our Lens</h2>
+        <p className="contact-subheading">
+          Every story begins with a single message. We're honoured to read yours.
+        </p>
         <div className="contact-divider" aria-hidden />
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="contact-field">
             <label htmlFor="contact-name" className="contact-label">
-              Your name
+              name
             </label>
             <input
               id="contact-name"
@@ -52,7 +55,7 @@ export function ContactSection() {
           </div>
           <div className="contact-field">
             <label htmlFor="contact-email" className="contact-label">
-              Your email
+              email
             </label>
             <input
               id="contact-email"
@@ -66,7 +69,7 @@ export function ContactSection() {
           </div>
           <div className="contact-field">
             <label htmlFor="contact-message" className="contact-label">
-              Your message
+              message
             </label>
             <textarea
               id="contact-message"
@@ -78,8 +81,8 @@ export function ContactSection() {
             />
           </div>
           <div className="contact-actions">
-            <button type="submit" className="contact-submit btn-engraved">
-              Send
+            <button type="submit" className="contact-submit">
+              Send your message
             </button>
           </div>
         </form>

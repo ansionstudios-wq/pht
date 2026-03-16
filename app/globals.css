@@ -1107,132 +1107,214 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0.2rem;
 }
 
-/* ========== Contact — old invitation scroll ========== */
+/* ========== Contact — emotional centerpiece (premium invitation) ========== */
 .contact-section {
-  padding: 4rem 0 5rem;
+  padding: 5rem 1.5rem 6rem;
   scroll-margin-top: 5.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(252, 250, 246, 0.6) 0%,
+    rgba(245, 240, 232, 0.7) 50%,
+    rgba(238, 232, 222, 0.75) 100%
+  );
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='cf'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cf)' opacity='0.025'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(252, 250, 246, 0.6) 0%, rgba(245, 240, 232, 0.7) 50%, rgba(238, 232, 222, 0.75) 100%);
+  background-size: 200px 200px, 100% 100%;
 }
 
 .contact-scroll {
-  max-width: 36rem;
+  position: relative;
+  max-width: 32rem;
   margin: 0 auto;
-  padding: 2.5rem 2rem;
-  background-color: rgba(248, 244, 236, 0.95);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)' opacity='0.04'/%3E%3C/svg%3E");
-  background-size: 100px 100px;
-  border: 1px solid rgba(184, 160, 96, 0.4);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  padding: 3rem 2.25rem 3.25rem;
+  background-color: rgba(255, 253, 250, 0.97);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='cp'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cp)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  border: 1px solid rgba(212, 200, 176, 0.5);
+  border-radius: 2px;
+  box-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.9) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset,
+    0 24px 48px -12px rgba(61, 50, 40, 0.08),
+    0 8px 24px -8px rgba(61, 50, 40, 0.04);
 }
 
+/* Heading — cinematic, premium hierarchy */
 .contact-heading {
   font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-faded);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  margin: 0;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+  color: var(--color-sepia-800);
   text-align: center;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
+.contact-heading--success {
+  font-size: clamp(1.5rem, 3.5vw, 1.875rem);
+}
+
+.contact-subheading {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  color: var(--text-faded-muted);
+  text-align: center;
+  margin: 1rem 0 0;
+  max-width: 22rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Refined divider */
 .contact-divider {
-  width: 4rem;
+  width: 3.5rem;
   height: 1px;
-  margin: 1rem auto 1.75rem;
+  margin: 1.5rem auto 2rem;
   background: linear-gradient(
     90deg,
     transparent,
-    var(--color-gold-400) 30%,
-    var(--color-gold-300) 50%,
-    var(--color-gold-400) 70%,
+    rgba(184, 160, 96, 0.6) 30%,
+    rgba(212, 192, 136, 0.5) 50%,
+    rgba(184, 160, 96, 0.6) 70%,
     transparent
   );
-  opacity: 0.85;
 }
 
+/* Form — editorial spacing */
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .contact-field {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .contact-label {
   font-family: var(--font-serif);
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: rgba(60, 48, 38, 0.9);
-  transition: color 0.4s ease;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-sepia-950);
+  transition: color 0.3s ease;
 }
 
+/* Premium inputs — soft, editorial, bold text */
 .contact-input {
   font-family: var(--font-sans);
-  font-size: 0.95rem;
-  color: rgba(250, 248, 245, 0.95);
-  background-color: rgba(60, 48, 38, 0.85);
-  border: 1px solid rgba(42, 34, 27, 0.9);
-  padding: 0.7rem 0.9rem;
-  transition: border-color 0.45s ease, box-shadow 0.45s ease, background-color 0.45s ease;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-sepia-900);
+  background-color: rgba(255, 252, 248, 0.98);
+  border: 1px solid rgba(212, 200, 176, 0.5);
+  padding: 0.85rem 1rem;
+  border-radius: 1px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .contact-input::placeholder {
-  color: rgba(212, 204, 190, 0.6);
+  color: var(--text-faded-muted);
+}
+
+.contact-input:hover {
+  border-color: rgba(184, 160, 96, 0.4);
 }
 
 .contact-input:focus {
   outline: none;
-  border-color: rgba(184, 160, 96, 0.9);
-  box-shadow: 0 0 0 2px rgba(184, 160, 96, 0.25);
+  border-color: rgba(184, 160, 96, 0.6);
+  box-shadow: 0 0 0 3px rgba(184, 160, 96, 0.12);
+  background-color: #fff;
 }
 
 .contact-textarea {
-  min-height: 6rem;
+  min-height: 7rem;
   resize: vertical;
+  line-height: 1.6;
 }
 
 .contact-actions {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
+  text-align: center;
 }
 
+/* Button — dark CTA */
 .contact-submit {
+  font-family: var(--font-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #faf8f5;
+  background: var(--color-sepia-900);
+  border: 1px solid var(--color-sepia-900);
+  padding: 0.9rem 2.25rem;
+  border-radius: 1px;
   cursor: pointer;
-  border: none;
+  transition: border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.contact-submit:hover {
+  background: var(--color-sepia-950);
+  border-color: var(--color-sepia-950);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.contact-submit:active {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
 }
 
 .contact-submit:disabled {
-  opacity: 0.7;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
-/* Success state — vintage tone */
+/* Success state — premium tone */
+.contact-success-badge {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold-500);
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
 .contact-success {
   text-align: center;
-  padding: 0.5rem 0;
+  padding: 0.25rem 0 0;
 }
 
 .contact-success-text {
   font-family: var(--font-serif);
   font-size: 1rem;
-  line-height: 1.75;
+  line-height: 1.8;
   letter-spacing: 0.02em;
-  color: rgba(60, 48, 38, 0.88);
+  color: var(--color-sepia-800);
   margin: 0 0 1.25rem;
   font-style: italic;
 }
 
 .contact-success-signature {
   font-family: var(--font-serif);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
-  color: rgba(92, 74, 56, 0.85);
+  letter-spacing: 0.12em;
+  color: var(--text-faded-muted);
   margin: 0;
 }
 
