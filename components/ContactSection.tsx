@@ -1,13 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError(null);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setError(
+        "Email sending isn't configured yet. Please set NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, and NEXT_PUBLIC_EMAILJS_PUBLIC_KEY."
+      );
+      return;
+    }
+
+    const formEl = formRef.current;
+    if (!formEl) {
+      setError("Something went wrong. Please refresh and try again.");
+      return;
+    }
+
+    try {
+      setSubmitting(true);
+      await emailjs.sendForm(serviceId, templateId, formEl, { publicKey });
+      setSubmitted(true);
+      formEl.reset();
+    } catch (err) {
+      const message =
+        err instanceof Error
+          ? err.message
+          : typeof err === "object" && err && "text" in err
+            ? String((err as { text?: unknown }).text)
+            : null;
+      setError(message ? `Failed to send your message: ${message}` : "Failed to send your message. Please try again in a moment.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -38,7 +76,7 @@ export function ContactSection() {
         </p>
         <div className="contact-divider" aria-hidden />
 
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form ref={formRef} className="contact-form" onSubmit={handleSubmit}>
           <div className="contact-field">
             <label htmlFor="contact-name" className="contact-label">
               name
@@ -80,9 +118,16 @@ export function ContactSection() {
               placeholder=" "
             />
           </div>
+
+          {error && (
+            <p className="contact-error" role="alert">
+              {error}
+            </p>
+          )}
+
           <div className="contact-actions">
-            <button type="submit" className="contact-submit">
-              Send your message
+            <button type="submit" className="contact-submit" disabled={submitting}>
+              {submitting ? "Sending…" : "Send your message"}
             </button>
           </div>
         </form>

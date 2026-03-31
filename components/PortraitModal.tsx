@@ -77,7 +77,8 @@ export function PortraitModal({ item, onClose }: PortraitModalProps) {
               alt={item.alt}
               fill
               className="portrait-modal-image"
-              sizes="(max-width: 900px) 95vw, 80vmin"
+              quality={95}
+              sizes="(max-width: 900px) 95vw, 720px"
             />
           </div>
         </div>

@@ -3,8 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-const ABOUT_IMAGE =
-  "https://images.unsplash.com/photo-1557862921-37829c790f19?w=800&q=80";
+const ABOUT_IMAGE = "/assets/gallery/harshini.png";
 
 const BIO = `Hi, I'm Harshini. A believer in beauty — in the way light settles on a quiet afternoon, in the unguarded expression, in the moments too tender to stage. I am here to find those moments and hold them still, pressed into frames you will return to long after the day has passed.
 
@@ -45,10 +44,11 @@ export function AboutSection() {
           <div className="about-image-wrap">
             <Image
               src={ABOUT_IMAGE}
-              alt="The portrait photographer at work"
-              width={500}
-              height={750}
+              alt="Harshini portrait"
+              width={614}
+              height={816}
               className="about-image"
+              quality={95}
               sizes="(max-width: 768px) 100vw, 42vw"
             />
           </div>

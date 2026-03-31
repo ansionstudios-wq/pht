@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { DustParticles } from "./DustParticles";
 
-const DEFAULT_IMAGE = "/assets/hero/hero2.jpeg";
+const DEFAULT_IMAGE = "/assets/hero/hero.JPG";
 
 type HeroProps = {
   imageSrc?: string;
@@ -20,6 +20,7 @@ export function Hero({ imageSrc = DEFAULT_IMAGE, imageAlt = "Anusion studio" }: 
           fill
           className="hero-bg-image"
           priority
+          quality={100}
           sizes="100vw"
         />
       </div>
