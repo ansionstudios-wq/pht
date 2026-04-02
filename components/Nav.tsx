@@ -13,6 +13,7 @@ const NAV_ITEMS = [
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
@@ -21,11 +22,16 @@ export function Nav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   const scrollTo = useCallback((target: string) => {
-    const el = document.getElementById(target);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    setMenuOpen(false);
+    setTimeout(() => {
+      document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
   }, []);
 
   return (
@@ -38,7 +44,20 @@ export function Nav() {
           <span className="nav-logo-line">Ansion</span>
           <span className="nav-logo-line">studio</span>
         </Link>
-        <ul className="nav-links">
+
+        <button
+          type="button"
+          className={`nav-hamburger ${menuOpen ? "nav-hamburger--open" : ""}`}
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+        >
+          <span className="nav-hamburger-bar" />
+          <span className="nav-hamburger-bar" />
+          <span className="nav-hamburger-bar" />
+        </button>
+
+        <ul className={`nav-links ${menuOpen ? "nav-links--open" : ""}`}>
           {NAV_ITEMS.map(({ label, target }) => (
             <li key={target}>
               <button
@@ -52,6 +71,14 @@ export function Nav() {
           ))}
         </ul>
       </nav>
+
+      {menuOpen && (
+        <div
+          className="nav-overlay"
+          onClick={() => setMenuOpen(false)}
+          aria-hidden
+        />
+      )}
     </header>
   );
 }
