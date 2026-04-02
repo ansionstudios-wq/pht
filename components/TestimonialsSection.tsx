@@ -53,7 +53,6 @@ export function TestimonialsSection() {
               <blockquote className="testimonial-quote">{t.quote}</blockquote>
               <footer className="testimonial-author">
                 <cite className="testimonial-name">{t.author}</cite>
-                {t.role && <span className="testimonial-role">{t.role}</span>}
               </footer>
             </li>
           ))}
