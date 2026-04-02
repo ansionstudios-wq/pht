@@ -1025,8 +1025,9 @@ button.nav-link {
 
 .about-image-wrap {
   position: relative;
-  aspect-ratio: 3 / 4;
+  width: 100%;
   max-width: 360px;
+  aspect-ratio: 3 / 4;
   margin: 0 auto;
   overflow: hidden;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -1046,6 +1047,7 @@ button.nav-link {
   object-fit: cover;
   object-position: center 28%;
   filter: grayscale(1) contrast(1.08) brightness(0.98);
+  display: block;
 }
 
 .about-bio-wrap {

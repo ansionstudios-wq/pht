@@ -45,8 +45,7 @@ export function AboutSection() {
             <Image
               src={ABOUT_IMAGE}
               alt="Harshini portrait"
-              width={614}
-              height={816}
+              fill
               className="about-image"
               quality={95}
               sizes="(max-width: 768px) 100vw, 42vw"
