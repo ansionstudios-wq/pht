@@ -210,6 +210,13 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+button.nav-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
 .nav-link {
   font-family: var(--font-sans);
   font-size: 0.9380rem;
@@ -498,16 +505,18 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   width: 3rem;
   height: 3rem;
-  color: rgba(250, 248, 245, 0.7);
-  text-decoration: none;
-  border: 1px solid rgba(250, 248, 245, 0.35);
+  color: var(--color-gold-500, #b8a060);
+  background: rgba(26, 21, 18, 0.35);
+  border: 1px solid rgba(184, 160, 96, 0.5);
   border-radius: 50%;
-  transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 
 .hero-scroll-indicator:hover {
-  color: rgba(250, 248, 245, 0.95);
-  border-color: rgba(250, 248, 245, 0.6);
+  color: #d4c088;
+  border-color: rgba(212, 192, 136, 0.7);
+  background: rgba(26, 21, 18, 0.5);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1354,6 +1363,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
   opacity: 0;
   transform: scale(0.98);
   transition: opacity 0.35s ease 0.05s, transform 0.35s ease 0.05s;
@@ -1365,26 +1375,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .portrait-modal-close {
-  position: absolute;
-  top: -2.5rem;
-  right: 0;
-  width: 2rem;
-  height: 2rem;
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 2001;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 300;
   line-height: 1;
-  color: rgba(250, 248, 245, 0.6);
-  background: transparent;
-  border: none;
+  color: rgba(250, 248, 245, 0.7);
+  background: rgba(26, 21, 18, 0.5);
+  border: 1px solid rgba(250, 248, 245, 0.15);
+  border-radius: 50%;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background 0.3s ease;
 }
 
 .portrait-modal-close:hover {
   color: rgba(250, 248, 245, 0.95);
+  background: rgba(26, 21, 18, 0.7);
 }
 
 .portrait-modal-frame {
@@ -1392,13 +1405,15 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(184, 160, 96, 0.6);
   box-shadow: 0 0 0 1px rgba(184, 160, 96, 0.2);
   max-width: 85vmin;
-  max-height: 75vh;
+  max-height: 65vh;
+  flex-shrink: 0;
 }
 
 .portrait-modal-image-wrap {
   position: relative;
   width: 80vmin;
   max-width: 560px;
+  max-height: 65vh;
   aspect-ratio: 4 / 5;
   display: block;
 }

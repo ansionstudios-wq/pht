@@ -1,7 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+
+const NAV_ITEMS = [
+  { label: "Home", target: "hero" },
+  { label: "Gallery", target: "gallery" },
+  { label: "About", target: "about" },
+  { label: "Testimonials", target: "testimonials" },
+  { label: "Contact", target: "contact" },
+];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -11,6 +19,13 @@ export function Nav() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollTo = useCallback((target: string) => {
+    const el = document.getElementById(target);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   }, []);
 
   return (
@@ -24,31 +39,17 @@ export function Nav() {
           <span className="nav-logo-line">studio</span>
         </Link>
         <ul className="nav-links">
-          <li>
-            <a href="#hero" className="nav-link">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#gallery" className="nav-link">
-              Gallery
-            </a>
-          </li>
-          <li>
-            <a href="#about" className="nav-link">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#testimonials" className="nav-link">
-              Testimonials
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className="nav-link">
-              Contact
-            </a>
-          </li>
+          {NAV_ITEMS.map(({ label, target }) => (
+            <li key={target}>
+              <button
+                type="button"
+                className="nav-link"
+                onClick={() => scrollTo(target)}
+              >
+                {label}
+              </button>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

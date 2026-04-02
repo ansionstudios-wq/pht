@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 
 export type PortraitModalItem = {
@@ -18,6 +19,11 @@ type PortraitModalProps = {
 export function PortraitModal({ item, onClose }: PortraitModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const [reveal, setReveal] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!item) {
@@ -48,9 +54,9 @@ export function PortraitModal({ item, onClose }: PortraitModalProps) {
     if (e.target === overlayRef.current) onClose();
   };
 
-  if (!item) return null;
+  if (!item || !mounted) return null;
 
-  return (
+  return createPortal(
     <div
       ref={overlayRef}
       className="portrait-modal-overlay"
@@ -61,15 +67,15 @@ export function PortraitModal({ item, onClose }: PortraitModalProps) {
       aria-labelledby="portrait-modal-title"
       aria-describedby="portrait-modal-desc"
     >
+      <button
+        type="button"
+        className="portrait-modal-close"
+        onClick={onClose}
+        aria-label="Close"
+      >
+        ×
+      </button>
       <div className="portrait-modal">
-        <button
-          type="button"
-          className="portrait-modal-close"
-          onClick={onClose}
-          aria-label="Close"
-        >
-          ×
-        </button>
         <div className="portrait-modal-frame">
           <div className="portrait-modal-image-wrap">
             <Image
@@ -91,6 +97,7 @@ export function PortraitModal({ item, onClose }: PortraitModalProps) {
           </p>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

@@ -32,14 +32,19 @@ export function Hero({ imageSrc = DEFAULT_IMAGE, imageAlt = "Anusion studio" }: 
         <p className="hero-subheading">
         Every glance , every embrace , every fleeting moment - Capturing with honesty , soul and an eye for beautiful
         </p>
-        <a href="#gallery" className="btn-engraved">
+        <button
+          type="button"
+          className="btn-engraved"
+          onClick={() => document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" })}
+        >
           Enter the gallery
-        </a>
+        </button>
       </div>
-      <a
-        href="#gallery"
+      <button
+        type="button"
         className="hero-scroll-indicator"
         aria-label="Scroll to gallery"
+        onClick={() => document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" })}
       >
         <svg
           width="28"
@@ -54,7 +59,7 @@ export function Hero({ imageSrc = DEFAULT_IMAGE, imageAlt = "Anusion studio" }: 
         >
           <path d="M12 5v14M5 12l7 7 7-7" />
         </svg>
-      </a>
+      </button>
     </section>
   );
 }
